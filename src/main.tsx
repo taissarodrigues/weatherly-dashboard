@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
+import './index.css'
+import { WeatherProvider } from './context/WeatherContext.tsx'
+import { ForecastProvider } from './context/ForecastContext.tsx' // ← adiciona isso
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <WeatherProvider>
+      <ForecastProvider>
+        <App />
+      </ForecastProvider>
+    </WeatherProvider>
+  </React.StrictMode>,
 )
