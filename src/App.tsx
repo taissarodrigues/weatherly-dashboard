@@ -1,20 +1,33 @@
 import React from "react";
-import { ThemeProvider } from "./context/ThemeContext";
-import { WeatherProvider } from "./context/WeatherContext";
-import { ForecastProvider } from "./context/ForecastContext";
-import Header from "./components/layout/Header"; 
+import { DashboardLayout } from "./components/layout/DashboardLayout/DashboardLayout";
+import Header from "./components/layout/Header/Header";
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <WeatherProvider>
-        <ForecastProvider>
-          <div className="app">
-            <Header />
+    <DashboardLayout
+      header={<Header />}
+      
+      mainContent={
+        <>
+          {/* <CurrentWeatherCard /> */}
+          {/* <WeatherStats /> */}
+          {/* <ForecastChart /> */}
+          <div style={{ padding: "20px", background: "var(--color-surface-soft)", borderRadius: "var(--radius-lg)" }}>
+            Área Principal (Clima Atual e Gráficos)
           </div>
-        </ForecastProvider>
-      </WeatherProvider>
-    </ThemeProvider>
+        </>
+      }
+      
+      // 3. O conteúdo da direita (Previsão de 7 dias)
+      sidebarContent={
+        <>
+          {/* <ForecastList /> */}
+          <div style={{ padding: "20px", background: "var(--color-surface-soft)", borderRadius: "var(--radius-lg)" }}>
+            Barra Lateral (Previsão 7 Dias)
+          </div>
+        </>
+      }
+    />
   );
 };
 

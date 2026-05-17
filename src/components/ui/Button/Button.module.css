@@ -1,0 +1,33 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  border-radius: var(--radius-md);
+}
+
+/* Variante do botão de Buscar tradicional (caso use) */
+.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-weight: 500;
+}
+.primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Variante para os ícones redondos do cabeçalho de referência */
+.icon {
+  background: transparent;
+  color: var(--color-text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative; /* Para o badge de notificação futuramente */
+}
+
+.icon:hover {
+  background-color: var(--color-surface-soft);
+  color: var(--color-text-primary);
+}
