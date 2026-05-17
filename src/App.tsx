@@ -1,18 +1,21 @@
+import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import { WeatherProvider } from "./context/WeatherContext";
+import { ForecastProvider } from "./context/ForecastContext";
+import Header from "./components/layout/Header"; 
 
-import './App.css'
-
-function App() {
-
+const App: React.FC = () => {
   return (
+    <ThemeProvider>
+      <WeatherProvider>
+        <ForecastProvider>
+          <div className="app">
+            <Header />
+          </div>
+        </ForecastProvider>
+      </WeatherProvider>
+    </ThemeProvider>
+  );
+};
 
-    <>
-
-      <h1>Lapisco Weather Dashboard</h1>
-
-    </>
-
-  )
-
-}
-
-export default App
+export default App;
