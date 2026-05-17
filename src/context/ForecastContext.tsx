@@ -49,12 +49,10 @@ export const ForecastProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const fetchForecast = async () => {
       setLoading(true);
       try {
-        // API 1 — geocoding: cidade → lat/lng
         const geoRes = await fetch(`${API_LINKS.geocoding}?name=${city}`);
         const geoData = await geoRes.json();
         const { latitude, longitude } = geoData.results[0];
 
-        // API 2 — forecast: lat/lng → previsão completa
         const forecastRes = await fetch(
           `${API_LINKS.weatherForecast}?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum&hourly=temperature_2m,windspeed_10m,relativehumidity_2m,uv_index&timezone=auto`
         );

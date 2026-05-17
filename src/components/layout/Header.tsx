@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Header.module.css';
 import { useWeather } from '../../context/WeatherContext';
 import { API_LINKS } from '../api_links';
 
 const Header = () => {
-  const { city, country, error, setCity } = useWeather();
+const { city, country, error, temperature, setCity, setLatitude, setLongitude } = useWeather();
   const [search, setSearch] = useState('');
   const [searchError, setSearchError] = useState<string | null>(null);
 
@@ -19,6 +19,8 @@ const Header = () => {
 
       if (data.results?.length > 0) {
         setCity(data.results[0].name); 
+        setLatitude(data.results[0].latitude);
+        setLongitude(data.results[0].longitude);
         setSearch('');
         setSearchError(null);
       } else {
@@ -51,6 +53,12 @@ const Header = () => {
       {city && (
         <p className={styles.location}>
           {city}{country ? `, ${country}` : ''}
+        </p>
+      )}
+      {/* temperatura atual */}
+      {temperature !== null && (
+        <p className={styles.temperature}>
+          {Math.round(temperature)}°C
         </p>
       )}
 

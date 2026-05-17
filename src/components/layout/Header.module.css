@@ -15,6 +15,13 @@
   font-size: 0.95rem;
 }
 
+.temperature {
+  margin-top: 0.25rem;
+  color: #111827;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
 .error {
   margin-top: 0.25rem;
   color: #b91c1c;
