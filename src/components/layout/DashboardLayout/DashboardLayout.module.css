@@ -44,6 +44,19 @@
   }
 }
 
+@media (min-width: 1201px) and (max-height: 760px) {
+  .layoutContainer {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+
+  .gridContainer,
+  .mainArea,
+  .sidebarArea {
+    gap: var(--spacing-lg);
+  }
+}
+
 @media (max-width: 768px) {
   .layoutContainer {
     padding: var(--spacing-lg);

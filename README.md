@@ -16,8 +16,6 @@ Aplicacao frontend em React + TypeScript para consulta de clima atual e previsao
 
 ## Preview
 
-Adicione as imagens da aplicacao na pasta `docs/screenshots` usando os nomes abaixo:
-
 | Modo claro | Modo escuro |
 | --- | --- |
 | ![Tela inicial em modo claro](docs/screenshots/light-mode.png) | ![Tela inicial em modo escuro](docs/screenshots/dark-mode.png) |
@@ -25,6 +23,10 @@ Adicione as imagens da aplicacao na pasta `docs/screenshots` usando os nomes aba
 | Tablet | Mobile |
 | --- | --- |
 | ![Layout responsivo em tablet](docs/screenshots/tablet.png) | ![Layout responsivo em mobile](docs/screenshots/mobile.png) |
+
+| Tablet claro | Mobile claro |
+| --- | --- |
+| ![Layout responsivo em tablet no modo claro](docs/screenshots/tablet-light-mode.png) | ![Layout responsivo em mobile no modo claro](docs/screenshots/mobile-light-mode.png) |
 
 ## Tecnologias
 

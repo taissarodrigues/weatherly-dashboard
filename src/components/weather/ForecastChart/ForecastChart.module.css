@@ -108,6 +108,19 @@ font-weight:var(--font-bold);
  box-shadow: var(--shadow-card-strong);
 }
 
+@media (min-width: 1201px) and (max-height: 760px) {
+  .chartCard {
+    gap: var(--spacing-lg);
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  .chartContainer {
+    height: 160px;
+    padding: 8px;
+  }
+}
+
 @media(max-width:768px){
 
 .chartCard{
