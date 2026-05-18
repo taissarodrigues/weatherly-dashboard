@@ -1,0 +1,86 @@
+.stateCard {
+  display: flex;
+  min-height: 240px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-2xl);
+  text-align: center;
+}
+
+.iconShell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 999px;
+}
+
+.loading .iconShell {
+  color: var(--color-primary);
+  background: rgba(59, 130, 246, 0.10);
+}
+
+.error .iconShell {
+  color: var(--color-error);
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.empty .iconShell {
+  color: var(--color-primary);
+  background: rgba(59, 130, 246, 0.10);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.loading .icon {
+  animation: spin 1s linear infinite;
+}
+
+.copy {
+  display: flex;
+  max-width: 420px;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.title {
+  color: var(--color-text-primary);
+  font-size: 1.25rem;
+  font-weight: var(--font-bold);
+}
+
+.message {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.actionButton {
+  gap: var(--spacing-sm);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .stateCard {
+    min-height: 220px;
+    padding: var(--spacing-xl);
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .message {
+    font-size: 0.88rem;
+  }
+}

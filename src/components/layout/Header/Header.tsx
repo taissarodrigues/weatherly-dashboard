@@ -5,7 +5,7 @@ import { Input } from "../../ui/Input/Input";
 import { Button } from "../../ui/Button/Button";
 import { getIpLocation, searchCities } from "../../../services/locationService";
 import type { CitySearchResult } from "../../../services/locationService";
-import { Search, Navigation, Sun, Moon, ChevronDown } from "lucide-react";
+import { Search, Navigation, Sun, Moon,  } from "lucide-react";
 import styles from "./Header.module.css";
 
 export const Header: React.FC = () => {
@@ -171,7 +171,7 @@ export const Header: React.FC = () => {
 
         <div className={styles.divider} />
 
-        {/* bloco de perfil do user */}
+        {/* bloco de perfil do user
         <div className={styles.profileBlock}>
           <img 
             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80" 
@@ -183,7 +183,7 @@ export const Header: React.FC = () => {
             <span className={styles.profileRole}>Premium</span>
           </div>
           <ChevronDown size={16} className={styles.arrowIcon} />
-        </div>
+        </div> */}
 
       </div>
     </header>

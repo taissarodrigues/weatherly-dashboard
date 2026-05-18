@@ -1,10 +1,32 @@
 :root {
-  --font-family: "Inter", system-ui, sans-serif;
 
-  --color-bg: #f5f8ff;
+  /* ==============================
+      TIPOGRAFIA
+  ============================== */
+
+  --font-family:
+    Inter,
+    SF Pro Display,
+    system-ui,
+    sans-serif;
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+
+  /* ==============================
+      CORES BASE
+  ============================== */
+
+  --color-bg: eef4fb;
+
   --color-surface: #ffffff;
-  --color-surface-soft: #f1f6ff;
-  --color-surface-blue: #eaf4ff;
+  --color-surface-soft: f3f7fc;
+  --color-surface-blue: #e6f0fb;;
 
   --color-primary: #2563eb;
   --color-primary-light: #3b82f6;
@@ -14,24 +36,56 @@
   --color-text-secondary: #475569;
   --color-text-muted: #94a3b8;
 
-  --color-border: #dbe7f5;
+  --shadow-card:
+  0 18px 42px rgba(15, 23, 42, 0.08);
+
+--shadow-soft:
+  0 10px 24px rgba(15, 23, 42, 0.06);
+
+  --color-border: #d3deeb;
 
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+
+
+  /* ==============================
+      CLIMA
+  ============================== */
 
   --weather-sunny: #fbbf24;
   --weather-rain: #3b82f6;
   --weather-cloud: #94a3b8;
   --weather-storm: #6366f1;
 
+
+  /* ==============================
+      BORDAS
+  ============================== */
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
   --radius-xl: 24px;
 
-  --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.08);
-  --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.06);
+
+  /* ==============================
+      SOMBRAS
+  ============================== */
+
+  --shadow-card:
+      0 12px 30px rgba(15,23,42,.08);
+
+  --shadow-soft:
+      0 8px 20px rgba(15,23,42,.06);
+
+  --shadow-large:
+      0 20px 50px rgba(15,23,42,.10);
+
+
+  /* ==============================
+      ESPAÇAMENTO
+  ============================== */
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -39,24 +93,78 @@
   --spacing-lg: 16px;
   --spacing-xl: 24px;
   --spacing-2xl: 32px;
+
+
+  /* ==============================
+      GLASS EFFECT
+  ============================== */
+
+  --glass-light:
+      rgba(255,255,255,.55);
+
+  --glass-dark:
+      rgba(15,23,42,.35);
+
+  --blur-lg:
+      blur(18px);
+
 }
 
+
+
 [data-theme="dark"] {
-  --color-bg: #07111f;
-  --color-surface: #0f1b2d;
-  --color-surface-soft: #13233a;
-  --color-surface-blue: #10284a;
+
+  /* ==============================
+      FUNDO
+  ============================== */
+
+  --color-bg: #111111;
+
+  /* ==============================
+      SUPERFÍCIES
+  ============================== */
+
+  --color-surface: #1f1f1f;
+  --color-surface-soft: #282828;
+  --color-surface-blue: #2f2f2f;
+
+  /* ==============================
+      CORES PRINCIPAIS
+  ============================== */
 
   --color-primary: #3b82f6;
   --color-primary-light: #60a5fa;
-  --color-primary-dark: #1d4ed8;
+  --color-primary-dark: #2563eb;
+
+
+  /* ==============================
+      TEXTOS
+  ============================== */
 
   --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
-  --color-text-muted: #64748b;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #787878;
 
-  --color-border: #22324a;
 
-  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.35);
-  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.25);
+  /* ==============================
+      BORDAS
+  ============================== */
+
+  --color-border:
+      rgba(255,255,255,.08);
+
+
+  /* ==============================
+      SOMBRAS
+  ============================== */
+
+  --shadow-card:
+      0 18px 46px rgba(0,0,0,.38);
+
+  --shadow-soft:
+      0 10px 24px rgba(0,0,0,.30);
+
+  --shadow-large:
+      0 24px 70px rgba(0,0,0,.50);
+
 }

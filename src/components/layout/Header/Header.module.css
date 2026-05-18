@@ -59,7 +59,7 @@
 
 .optionName {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: var(--font-semibold);
 }
 
 .optionMeta {
@@ -79,7 +79,6 @@
   gap: var(--spacing-md);
 }
 
-/* Bolinha azul de notificação idêntica ao print */
 .notificationBadge {
   position: absolute;
   top: 8px;
@@ -127,7 +126,7 @@
 
 .profileName {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   color: var(--color-text-primary);
   line-height: 1.2;
 }
@@ -142,7 +141,6 @@
   margin-left: var(--spacing-xs);
 }
 
-/* Classe utilitária para leitores de tela */
 .srOnly {
   position: absolute;
   width: 1px;
@@ -153,4 +151,43 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .searchSection {
+    min-width: 0;
+  }
+
+  .searchBox {
+    max-width: none;
+  }
+
+  .actionsSection {
+    flex-shrink: 0;
+    gap: var(--spacing-sm);
+  }
+
+  .profileBlock {
+    display: none;
+  }
+
+  .divider {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .actionsSection {
+    gap: var(--spacing-xs);
+  }
 }

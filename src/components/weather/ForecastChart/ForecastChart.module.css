@@ -1,0 +1,145 @@
+.chartCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+
+  width: 100%;
+  min-height: 385px;
+
+  padding: 32px;
+
+  border-radius: 32px;
+
+  background: var(--color-surface);
+
+  box-shadow: 0 24px 60px rgba(15,23,42,.08);
+}
+
+.chartHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--spacing-lg);
+}
+
+.chartTitle {
+  font-size: 1.2rem;
+  font-weight: var(--font-bold);
+
+  color: var(--color-text-primary);
+
+  letter-spacing: 0;
+}
+
+.chartSub {
+  margin-top:4px;
+
+  font-size: .85rem;
+
+  color: var(--color-text-secondary);
+}
+
+.displaying {
+  display:flex;
+  align-items:center;
+  gap:4px;
+
+  padding:0;
+  background:transparent;
+}
+
+.displayingText{
+  font-size:.9rem;
+  font-weight:var(--font-regular);
+
+  color:var(--color-text-secondary);
+}
+
+.displaying span{
+  font-size:.95rem;
+  font-weight:var(--font-bold);
+
+  color:var(--color-primary);
+}
+
+.chartContainer {
+  width:100%;
+  height:240px;
+
+  padding:12px;
+
+  border-radius:24px;
+
+  background:
+  linear-gradient(
+      180deg,
+      rgba(251,191,36,.04),
+      transparent
+  );
+}
+
+.tooltip{
+ display:flex;
+ flex-direction:column;
+ gap:6px;
+
+ padding:12px 16px;
+
+ border-radius:18px;
+ border:1px solid var(--color-border);
+
+ background:var(--color-surface);
+
+ box-shadow:var(--shadow-card);
+}
+
+.tooltipTitle{
+ font-size:.85rem;
+font-weight:var(--font-bold);
+ color:var(--color-text-primary);
+}
+
+.tooltipItem{
+ font-size:.8rem;
+ color:var(--color-text-secondary);
+}
+
+:global([data-theme="dark"]) .chartCard{
+ box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+
+@media(max-width:768px){
+
+.chartCard{
+padding:24px;
+min-height:340px;
+}
+
+.chartHeader{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.chartContainer{
+height:220px;
+padding:6px;
+}
+
+}
+
+@media(max-width:480px){
+  .chartCard {
+    padding: var(--spacing-lg);
+    min-height: 320px;
+  }
+
+  .chartTitle {
+    font-size: 1.15rem;
+  }
+
+  .chartContainer {
+    height: 200px;
+    padding: 0;
+  }
+}

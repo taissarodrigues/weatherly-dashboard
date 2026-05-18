@@ -10,7 +10,7 @@
   background-color: var(--color-primary);
   color: #ffffff;
   padding: var(--spacing-sm) var(--spacing-xl);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 .primary:hover {
   background-color: var(--color-primary-light);

@@ -7,6 +7,15 @@ import {
   CloudFog,
 } from "lucide-react";
 
+const sunnyImage = new URL("../assets/weather/sunny.svg", import.meta.url).href;
+const partlyCloudyImage = new URL("../assets/weather/partly-cloudy.svg", import.meta.url).href;
+const cloudyImage = new URL("../assets/weather/cloudy.svg", import.meta.url).href;
+const rainImage = new URL("../assets/weather/rain.svg", import.meta.url).href;
+const stormImage = new URL("../assets/weather/storm.svg", import.meta.url).href;
+const fogImage = new URL("../assets/weather/fog.svg", import.meta.url).href;
+
+export const defaultWeatherImage = partlyCloudyImage;
+
 const sunnyBg =
   "https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
@@ -65,24 +74,28 @@ export const weatherCodeMap = {
   0: {
     description: "Ensolarado",
     icon: Sun,
+    image: sunnyImage,
     background: sunnyBg,
   },
 
   1: {
     description: "Principalmente limpo",
     icon: CloudSun,
+    image: partlyCloudyImage,
     background: clearBg,
   },
 
   2: {
     description: "Parcialmente nublado",
     icon: CloudSun,
+    image: partlyCloudyImage,
     background: partlyCloudyBg,
   },
 
   3: {
     description: "Nublado",
     icon: Cloud,
+    image: cloudyImage,
     background: cloudyBg,
   },
 
@@ -92,12 +105,14 @@ export const weatherCodeMap = {
   45: {
     description: "Neblina",
     icon: CloudFog,
+    image: fogImage,
     background: fogBg,
   },
 
   48: {
     description: "Neblina intensa",
     icon: CloudFog,
+    image: fogImage,
     background: fogBg,
   },
 
@@ -107,18 +122,21 @@ export const weatherCodeMap = {
   51: {
     description: "Garoa leve",
     icon: CloudRain,
+    image: rainImage,
     background: drizzleBg,
   },
 
   53: {
     description: "Garoa moderada",
     icon: CloudRain,
+    image: rainImage,
     background: drizzleBg,
   },
 
   55: {
     description: "Garoa intensa",
     icon: CloudRain,
+    image: rainImage,
     background: lightRainBg,
   },
 
@@ -128,18 +146,21 @@ export const weatherCodeMap = {
   61: {
     description: "Chuva leve",
     icon: CloudRain,
+    image: rainImage,
     background: lightRainBg,
   },
 
   63: {
     description: "Chuva moderada",
     icon: CloudRain,
+    image: rainImage,
     background: heavyRainBg,
   },
 
   65: {
     description: "Chuva forte",
     icon: CloudRain,
+    image: rainImage,
     background: heavyRainBg,
   },
 
@@ -149,18 +170,21 @@ export const weatherCodeMap = {
   80: {
     description: "Pancadas de chuva",
     icon: CloudRain,
+    image: rainImage,
     background: showerBg,
   },
 
   81: {
     description: "Pancadas moderadas",
     icon: CloudRain,
+    image: rainImage,
     background: showerBg,
   },
 
   82: {
     description: "Pancadas fortes",
     icon: CloudRain,
+    image: stormImage,
     background: stormBg,
   },
 
@@ -170,18 +194,21 @@ export const weatherCodeMap = {
   95: {
     description: "Tempestade",
     icon: CloudLightning,
+    image: stormImage,
     background: stormBg,
   },
 
   96: {
     description: "Tempestade com granizo",
     icon: CloudLightning,
+    image: stormImage,
     background: stormBg,
   },
 
   99: {
     description: "Tempestade severa",
     icon: CloudLightning,
+    image: stormImage,
     background: stormBg,
   },
 

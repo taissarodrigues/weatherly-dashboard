@@ -1,8 +1,8 @@
 import React from "react";
-import { CloudSun } from "lucide-react";
 import { useWeather } from "../../../context/weather/useWeather";
 import { Card } from "../../ui/Card/Card";
-import { weatherCodeMap } from "../../../utils/weatherCode";
+import { defaultWeatherImage, weatherCodeMap } from "../../../utils/weatherCode";
+import { WeatherStateCard } from "../WeatherStateCard/WeatherStateCard";
 import styles from "./CurrentWeatherCard.module.css";
 
 export const CurrentWeatherCard: React.FC = () => {
@@ -17,6 +17,7 @@ export const CurrentWeatherCard: React.FC = () => {
     dailyForecast,
     loading,
     error,
+    retryWeather,
   } = useWeather();
   const weatherCode =
   currentWeatherCode ?? dailyForecast?.weathercode?.[0];
@@ -26,34 +27,49 @@ const weather =
     weatherCode as keyof typeof weatherCodeMap
   ];
 
-const WeatherIcon =
-  weather?.icon || CloudSun;
+const weatherImage =
+  weather?.image || defaultWeatherImage;
 
 const weatherDescription =
   weather?.description || "Clima indisponível";
 
-  const backgroundImage = weather?.background;
+      const backgroundImage = weather?.background;
 
 
-  if (loading && !city) {
-    return <Card className={styles.center}><span className={styles.infoText}>Carregando clima atual...</span></Card>;
+  const hasWeatherData = temperature !== null || dailyForecast !== null;
+
+  if (loading && !hasWeatherData) {
+    return <WeatherStateCard variant="loading" />;
   }
 
-  if (error && !city) {
-    return <Card className={styles.center}><span className={styles.errorText}>{error}</span></Card>;
+  if (error && !hasWeatherData) {
+    return (
+      <WeatherStateCard
+        variant="error"
+        message={error}
+        onAction={retryWeather}
+      />
+    );
   }
 
-  if (!city) return null;
+  if (!city) {
+    return <WeatherStateCard variant="empty" />;
+  }
+
+  if (!hasWeatherData) {
+    return <WeatherStateCard variant="loading" />;
+  }
 
   return (
   <Card
-  className={styles.mainCard}
+  className={`${styles.mainCard} ${loading ? styles.updating : ""}`}
   style={{
     "--weather-background": backgroundImage
       ? `url(${backgroundImage})`
       : "none",
   } as React.CSSProperties}
 >
+    {loading && <span className={styles.updateBadge}>Atualizando...</span>}
     
     <div className={styles.infoSection}>
       
@@ -123,8 +139,9 @@ const weatherDescription =
     </div>
 
   <div className={styles.visualSection}>
-  <WeatherIcon
-    size={120}
+  <img
+    src={weatherImage}
+    alt={weatherDescription}
     className={styles.weatherIcon}
   />
 </div>

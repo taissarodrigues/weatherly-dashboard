@@ -2,6 +2,7 @@ import React, {
   useState,
   useEffect,
   useMemo,
+  useCallback,
 } from "react";
 import { getIpLocation } from "../../services/locationService";
 import { getWeatherForecast } from "../../services/weatherService";
@@ -24,11 +25,33 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
   const [uvIndex, setUvIndex] = useState<number | null>(null);
   const [dailyForecast, setDailyForecast] = useState<DailyForecastData | null>(null);
   const [hourlyForecast, setHourlyForecast] = useState<HourlyForecastData | null>(null);
+  const [retryKey, setRetryKey] = useState(0);
+  const [locationRetryKey, setLocationRetryKey] = useState(0);
+
+  const clearWeatherData = useCallback(() => {
+    setTemperature(null);
+    setCurrentWeatherCode(null);
+    setHumidity(null);
+    setWindSpeed(null);
+    setUvIndex(null);
+    setDailyForecast(null);
+    setHourlyForecast(null);
+  }, []);
+
+  const retryWeather = useCallback(() => {
+    if (latitude === null || longitude === null) {
+      setLocationRetryKey((current) => current + 1);
+      return;
+    }
+
+    setRetryKey((current) => current + 1);
+  }, [latitude, longitude]);
 
   // geolocalização inicial por IP
   useEffect(() => {
     let isMounted = true;
     const fetchLocation = async () => {
+      setLoading(true);
       try {
         const data = await getIpLocation();
         if (isMounted) {
@@ -39,11 +62,13 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
         }
       } catch {
         if (isMounted) setError("Não foi possível detectar sua localização.");
+      } finally {
+        if (isMounted) setLoading(false);
       }
     };
     fetchLocation();
     return () => { isMounted = false; };
-  }, []);
+  }, [locationRetryKey]);
   useEffect(() => {
     if (latitude === null || longitude === null) return;
     let isMounted = true;
@@ -64,7 +89,10 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
           setHourlyForecast(data.hourly ?? null);
         }
       } catch {
-        if (isMounted) setError("Não foi possível carregar as informações do clima.");
+        if (isMounted) {
+          clearWeatherData();
+          setError("Não foi possível carregar as informações do clima.");
+        }
       } finally {
         if (isMounted) setLoading(false);
       }
@@ -72,19 +100,20 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
 
     fetchWeather();
     return () => { isMounted = false; };
-  }, [latitude, longitude]);
+  }, [latitude, longitude, retryKey, clearWeatherData]);
 
   const value = useMemo(
     () => ({
       city, country, error, latitude, longitude, loading,
       temperature, currentWeatherCode, humidity, windSpeed, uvIndex,
       dailyForecast, hourlyForecast,
-      setCity, setCountry, setLatitude, setLongitude,
+      retryWeather, setCity, setCountry, setLatitude, setLongitude,
     }),
     [
       city, country, error, latitude, longitude, loading,
       temperature, currentWeatherCode, humidity, windSpeed, uvIndex,
       dailyForecast, hourlyForecast,
+      retryWeather,
     ]
   );
 

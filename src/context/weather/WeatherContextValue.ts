@@ -29,6 +29,7 @@ export interface WeatherContextType {
   dailyForecast: DailyForecastData | null;
   hourlyForecast: HourlyForecastData | null;
   loading: boolean;
+  retryWeather: () => void;
   setCity: (city: string | null) => void;
   setCountry: (country: string | null) => void;
   setLatitude: (latitude: number | null) => void;

@@ -2,6 +2,8 @@ import React from "react";
 import { DashboardLayout } from "./components/layout/DashboardLayout/DashboardLayout";
 import { Header } from "./components/layout/Header/Header";
 import { CurrentWeatherCard } from "./components/weather/CurrentWeatherCard/CurrentWeatherCard";
+import { ForecastChart } from "./components/weather/ForecastChart/ForecastChart";
+import { ForecastList } from "./components/weather/ForecastList/ForecastList";
 
 const App: React.FC = () => {
   return (
@@ -12,20 +14,13 @@ const App: React.FC = () => {
         <>
           {<CurrentWeatherCard />}
           {/* <WeatherStats /> */}
-          {/* <ForecastChart /> */}
-          <div style={{ padding: "20px", background: "var(--color-surface-soft)", borderRadius: "var(--radius-lg)" }}>
-            Área Principal (Clima Atual e Gráficos)
-          </div>
+          { <ForecastChart /> }
         </>
       }
-      
-      // 3. O conteúdo da direita (Previsão de 7 dias)
+    
       sidebarContent={
         <>
-          {/* <ForecastList /> */}
-          <div style={{ padding: "20px", background: "var(--color-surface-soft)", borderRadius: "var(--radius-lg)" }}>
-            Barra Lateral (Previsão 7 Dias)
-          </div>
+          {<ForecastList /> }
         </>
       }
     />
