@@ -102,7 +102,7 @@
 .metricsGrid {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
 
   z-index: 2;
@@ -132,6 +132,7 @@
   display: flex;
   align-items: baseline;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .metricLabel {
@@ -189,6 +190,26 @@
   }
 }
 
+@media (min-width: 1201px) and (max-height: 760px) {
+  .mainCard {
+    min-height: 220px;
+    padding: 24px;
+  }
+
+  .infoSection {
+    gap: 16px;
+  }
+
+  .metricItem {
+    padding: 10px 14px;
+  }
+
+  .weatherIcon {
+    width: 96px;
+    height: 96px;
+  }
+}
+
 @media (max-width: 768px) {
   .mainCard {
     min-height: 320px;
@@ -238,6 +259,7 @@
   }
 
   .metricsGrid {
+    flex-wrap: wrap;
     max-width: calc(100% - 108px);
   }
 }

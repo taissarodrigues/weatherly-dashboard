@@ -24,6 +24,10 @@ Aplicacao frontend em React + TypeScript para consulta de clima atual e previsao
 | --- | --- |
 | ![Layout responsivo em tablet](docs/screenshots/tablet.png) | ![Layout responsivo em mobile](docs/screenshots/mobile.png) |
 
+| Tablet claro | Mobile claro |
+| --- | --- |
+| ![Layout responsivo em tablet no modo claro](docs/screenshots/tablet-light-mode.png) | ![Layout responsivo em mobile no modo claro](docs/screenshots/mobile-light-mode.png) |
+
 ## Tecnologias
 
 - React
