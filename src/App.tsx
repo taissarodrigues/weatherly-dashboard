@@ -1,6 +1,7 @@
 import React from "react";
 import { DashboardLayout } from "./components/layout/DashboardLayout/DashboardLayout";
-import Header from "./components/layout/Header/Header";
+import { Header } from "./components/layout/Header/Header";
+import { CurrentWeatherCard } from "./components/weather/CurrentWeatherCard/CurrentWeatherCard";
 
 const App: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const App: React.FC = () => {
       
       mainContent={
         <>
-          {/* <CurrentWeatherCard /> */}
+          {<CurrentWeatherCard />}
           {/* <WeatherStats /> */}
           {/* <ForecastChart /> */}
           <div style={{ padding: "20px", background: "var(--color-surface-soft)", borderRadius: "var(--radius-lg)" }}>

@@ -1,0 +1,206 @@
+.mainCard {
+  --card-text-primary: #0f172a;
+  --card-text-secondary: #475569;
+  --card-overlay-start: rgba(255,255,255,.92);
+  --card-overlay-middle: rgba(255,255,255,.68);
+  --card-overlay-end: rgba(255,255,255,.18);
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 250px;
+  padding: var(--spacing-xl);
+
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--card-overlay-start) 0%,
+      var(--card-overlay-middle) 45%,
+      var(--card-overlay-end) 100%
+    ),
+    var(--weather-background),
+    var(--color-surface-blue);
+
+  background-size: cover;
+  background-position: center;
+}
+
+.infoSection{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:var(--spacing-lg);
+
+  z-index:2;
+}
+
+.locationContainer{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.cityName{
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--card-text-primary);
+}
+
+.dateText{
+  font-size:.95rem;
+  color:var(--card-text-secondary);
+}
+
+.temperatureContainer{
+  display:flex;
+}
+
+.tempNumber{
+  font-size:5rem;
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-3px;
+  color:var(--card-text-primary);
+}
+
+.metricsGrid{
+  display:flex;
+  gap:var(--spacing-lg);
+
+  margin-top:var(--spacing-sm);
+
+  z-index:2;
+}
+
+.metricItem{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.iconWrapper{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:30px;
+  height:30px;
+
+  border-radius:50%;
+}
+
+.wind{
+  color:#3B82F6;
+}
+
+.humidity{
+  color:#38BDF8;
+}
+
+.uv{
+  color:#FBBF24;
+}
+
+.metricText{
+  display:flex;
+  flex-direction:column;
+}
+
+.metricLabel{
+  font-size:.75rem;
+  color:var(--card-text-secondary);
+}
+
+.metricValue{
+  font-size:.85rem;
+  font-weight:600;
+  color:var(--card-text-primary);
+}
+
+.visualSection{
+  position:absolute;
+
+  right:50px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  z-index:1;
+}
+
+.weatherIcon{
+  width:120px;
+  height:120px;
+
+  color:var(--color-primary);
+
+  filter:drop-shadow(
+      0 10px 18px rgba(37,99,235,.2)
+  );
+
+  animation:float 4s ease infinite;
+}
+.weatherDescription{
+  font-size:1rem;
+  font-weight:600;
+  color:var(--card-text-secondary);
+
+  margin-top:var(--spacing-xs);
+}
+
+.separator{
+  color:var(--card-text-primary);
+}
+
+:global([data-theme="dark"]) .mainCard {
+  --card-text-primary: #f8fafc;
+  --card-text-secondary: #cbd5e1;
+  --card-overlay-start: rgba(2, 6, 23, .82);
+  --card-overlay-middle: rgba(15, 23, 42, .58);
+  --card-overlay-end: rgba(15, 23, 42, .25);
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+@media(max-width:768px){
+
+.mainCard{
+flex-direction:column;
+align-items:flex-start;
+gap: var(--spacing-lg);
+}
+
+.visualSection{
+position:relative;
+
+right:auto;
+top:auto;
+
+transform:none;
+}
+
+.weatherIcon{
+width:80px;
+height:80px;
+}
+
+.metricsGrid{
+flex-wrap:wrap;
+}
+
+}

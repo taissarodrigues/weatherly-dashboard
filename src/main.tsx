@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { ThemeProvider } from "./context/ThemeContext";
-import { WeatherProvider } from "./context/WeatherContext";
+import { ThemeProvider } from "./context/theme/ThemeContext";
+import { WeatherProvider } from "./context/weather/WeatherContext";
+import { preloadWeatherBackgrounds } from "./utils/weatherCode";
 import "./App.module.css";
 import "./styles/globals.css";
+
+preloadWeatherBackgrounds();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -6,7 +6,6 @@
   border-radius: var(--radius-md);
 }
 
-/* Variante do botão de Buscar tradicional (caso use) */
 .primary {
   background-color: var(--color-primary);
   color: #ffffff;
@@ -17,14 +16,13 @@
   background-color: var(--color-primary-light);
 }
 
-/* Variante para os ícones redondos do cabeçalho de referência */
 .icon {
   background: transparent;
   color: var(--color-text-secondary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  position: relative; /* Para o badge de notificação futuramente */
+  position: relative; 
 }
 
 .icon:hover {
