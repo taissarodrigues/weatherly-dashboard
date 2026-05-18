@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# Lapisco Weather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacao frontend em React + TypeScript para consulta de clima atual e previsao dos proximos dias. O projeto consome APIs publicas para buscar cidades, detectar a localizacao aproximada do usuario por IP e exibir dados meteorologicos em cards e graficos.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Pesquisa dinamica por cidade com sugestoes de resultados.
+- Geolocalizacao automatica por IP ao abrir a aplicacao.
+- Botao para atualizar usando a localizacao atual.
+- Exibicao de temperatura atual, umidade, velocidade do vento, indice UV e condicao climatica.
+- Previsao dos proximos 7 dias com maxima, minima e imagem da condicao do tempo.
+- Grafico de variacao de temperatura minima e maxima usando Recharts.
+- Tema claro e escuro com persistencia no `localStorage`.
+- Estados de carregamento, erro e tela vazia com mensagens amigaveis.
+- Layout responsivo para desktop, tablet e mobile.
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
+- Recharts
+- Lucide React
+- CSS Modules
+- Context API
 
-## Expanding the ESLint configuration
+## APIs Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Geolocalizacao por IP: `https://geo.kamero.ai/api/geo`
+- Geocodificacao por cidade: `https://geocoding-api.open-meteo.com/v1/search`
+- Previsao do tempo: `https://api.open-meteo.com/v1/forecast`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+As URLs estao configuradas em `src/config/apiLinks.ts`. Nenhuma chave de API ou variavel de ambiente e necessaria para executar o projeto.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Como Rodar
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone o repositorio:
+
+```bash
+git clone <url-do-repositorio>
+cd lapisco-weather
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Instale as dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+4. Abra a URL exibida no terminal, normalmente:
+
+```bash
+http://localhost:5173
+```
+
+## Scripts Disponiveis
+
+```bash
+npm run dev
+```
+
+Executa a aplicacao em modo de desenvolvimento.
+
+```bash
+npm run build
+```
+
+Executa a checagem TypeScript e gera a versao de producao em `dist/`.
+
+```bash
+npm run lint
+```
+
+Executa o ESLint no projeto.
+
+```bash
+npm run preview
+```
+
+Serve localmente a build de producao.
+
+## Estrutura Principal
+
+- `src/context/weather`: estado global do clima, cidade selecionada, previsoes e carregamento.
+- `src/context/theme`: controle de tema claro/escuro.
+- `src/services`: funcoes de acesso as APIs publicas.
+- `src/components/layout`: layout geral e cabecalho com busca.
+- `src/components/weather`: cards, lista de previsao e grafico.
+- `src/utils/weatherCode.ts`: mapeamento dos codigos meteorologicos para descricoes, imagens e fundos.
+
+## Observacoes
+
+- A localizacao automatica e aproximada, pois utiliza geolocalizacao baseada em IP.
+- A busca por cidade utiliza a API de geocodificacao da Open-Meteo e seleciona coordenadas para atualizar todos os dados climaticos.
+- A aplicacao mantem os dados anteriores visiveis enquanto uma nova busca esta carregando, evitando que os cards desaparecam durante a atualizacao.

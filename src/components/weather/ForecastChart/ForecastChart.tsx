@@ -47,7 +47,7 @@ const ForecastTooltip = ({ active, payload, label }: ForecastTooltipProps) => {
 };
 
 export const ForecastChart: React.FC = () => {
-  const { dailyForecast, loading, city, country } = useWeather();
+  const { dailyForecast, city, country } = useWeather();
 
   const chartData = useMemo(() => {
     if (!dailyForecast?.time) return [];
@@ -79,7 +79,7 @@ export const ForecastChart: React.FC = () => {
 
   }, [dailyForecast]) satisfies ChartPoint[];
 
-  if (!city || loading) return null;
+  if (!city || !dailyForecast) return null;
 
   return (
     <Card className={styles.chartCard}>

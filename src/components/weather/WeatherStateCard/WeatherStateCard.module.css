@@ -20,17 +20,17 @@
 
 .loading .iconShell {
   color: var(--color-primary);
-  background: rgba(59, 130, 246, 0.10);
+  background: var(--color-primary-soft);
 }
 
 .error .iconShell {
   color: var(--color-error);
-  background: rgba(239, 68, 68, 0.12);
+  background: var(--color-error-soft);
 }
 
 .empty .iconShell {
   color: var(--color-primary);
-  background: rgba(59, 130, 246, 0.10);
+  background: var(--color-primary-soft);
 }
 
 .icon {

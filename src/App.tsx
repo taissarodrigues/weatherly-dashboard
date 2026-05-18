@@ -9,18 +9,15 @@ const App: React.FC = () => {
   return (
     <DashboardLayout
       header={<Header />}
-      
       mainContent={
         <>
-          {<CurrentWeatherCard />}
-          {/* <WeatherStats /> */}
-          { <ForecastChart /> }
+          <CurrentWeatherCard />
+          <ForecastChart />
         </>
       }
-    
       sidebarContent={
         <>
-          {<ForecastList /> }
+          <ForecastList />
         </>
       }
     />

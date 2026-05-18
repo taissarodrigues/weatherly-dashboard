@@ -1,9 +1,9 @@
 .mainCard {
-  --card-text-primary: #0f172a;
-  --card-text-secondary: #475569;
-  --card-overlay-start: rgba(255, 255, 255, 0.94);
-  --card-overlay-middle: rgba(255, 255, 255, 0.68);
-  --card-overlay-end: rgba(255, 255, 255, 0.16);
+  --card-text-primary: var(--color-text-primary);
+  --card-text-secondary: var(--color-text-secondary);
+  --card-overlay-start: var(--weather-card-overlay-start);
+  --card-overlay-middle: var(--weather-card-overlay-middle);
+  --card-overlay-end: var(--weather-card-overlay-end);
 
   position: relative;
   display: flex;
@@ -15,7 +15,7 @@
 
   overflow: hidden;
   border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid var(--color-border-soft);
 
   background:
     linear-gradient(
@@ -29,7 +29,8 @@
 
   background-size: cover;
   background-position: center;
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  background-clip: padding-box;
+  box-shadow: var(--shadow-card-strong);
 }
 
 .updating {
@@ -44,7 +45,7 @@
   padding: 6px 10px;
   border-radius: 999px;
   color: var(--card-text-primary);
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--glass-badge);
   font-size: 0.75rem;
   backdrop-filter: blur(12px);
 }
@@ -107,14 +108,28 @@
 
 .metricItem {
   display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 16px;
+  min-width: 150px;
+
+  border-radius: 16px;
+  background: var(--glass-card-light);
+  backdrop-filter: blur(14px);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.metricIcon {
+  flex: 0 0 auto;
+  color: var(--color-primary);
+}
+
+.metricCopy {
+  display: flex;
   align-items: baseline;
   gap: 6px;
-
-  padding: 8px 12px;
-
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.46);
-  backdrop-filter: blur(12px);
 }
 
 .metricLabel {
@@ -145,27 +160,25 @@
   width: 110px;
   height: 110px;
   object-fit: contain;
-  filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.20));
+  filter: var(--shadow-weather-icon);
   animation: float 4s ease infinite;
 }
 
 :global([data-theme="dark"]) .mainCard {
-  --card-text-primary: #f8fafc;
-  --card-text-secondary: #cbd5e1;
-  --card-overlay-start: rgba(2, 6, 23, 0.86);
-  --card-overlay-middle: rgba(15, 23, 42, 0.62);
-  --card-overlay-end: rgba(15, 23, 42, 0.28);
-
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-large);
 }
 
 :global([data-theme="dark"]) .metricItem {
-  background: rgba(15, 23, 42, 0.42);
+  background: var(--glass-card-light);
+}
+
+:global([data-theme="dark"]) .metricIcon {
+  color: var(--color-primary-light);
 }
 
 :global([data-theme="dark"]) .updateBadge {
-  background: rgba(15, 23, 42, 0.5);
+  background: var(--glass-badge);
 }
 
 @keyframes float {
@@ -259,6 +272,12 @@
 
   .metricItem {
     padding: 8px 10px;
+  }
+
+  .metricCopy {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
   }
 
   .visualSection {

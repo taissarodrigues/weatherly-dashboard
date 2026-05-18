@@ -13,7 +13,7 @@
 
   background: var(--color-surface);
 
-  box-shadow: 0 24px 60px rgba(15,23,42,.08);
+  box-shadow: var(--shadow-card-strong);
 }
 
 .cardHeader {
@@ -26,13 +26,6 @@
   font-size: 1.15rem;
   font-weight: var(--font-bold);
   color: var(--color-text-primary);
-}
-
-.headerLink {
-  font-size: .82rem;
-  font-weight: var(--font-bold);
-  color: var(--color-primary);
-  background: transparent;
 }
 
 .listContainer {
@@ -52,7 +45,7 @@
   gap: var(--spacing-md);
 
   min-height: 80px;
-  padding: 14px;
+  padding: 12px;
 
   border-radius: 18px;
 
@@ -61,18 +54,12 @@
 
 .dayRow:hover {
   transform: translateX(6px);
-  background: var(--color-surface-soft);
+  background: var(--color-surface-hover);
 }
 
 .featuredRow {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(59,130,246,.10),
-      rgba(59,130,246,.03)
-    );
-
-  border:1px solid rgba(59,130,246,.10);
+  background: var(--color-surface-active);
+  border: 1px solid var(--color-border-soft);
 }
 
 .iconWrapper {
@@ -92,7 +79,7 @@
 
   filter:
     drop-shadow(
-      0 8px 14px rgba(251,191,36,.12)
+      0 8px 14px var(--color-primary-tint)
     );
 }
 
@@ -106,12 +93,12 @@
   font-size:.92rem;
   font-weight:var(--font-bold);
 
-  color:var(--color-text-primary);
+  color: var(--color-text-primary);
 }
 
 .weatherDescription {
   font-size:.8rem;
-  color:var(--color-text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .tempRange {
@@ -124,39 +111,11 @@ font-weight:var(--font-bold);
 }
 
 .maxTemp {
-  color: var(--color-text-secondary);
+  color: var(--color-text-strong);
 }
 
 .minTemp {
   color: var(--color-text-secondary);
-}
-
-.footerButton {
- display:flex;
- align-items:center;
- justify-content:center;
- gap:8px;
-
- width:100%;
- padding:14px;
-
- border-radius:18px;
- border:1px solid var(--color-border);
-
-font-weight:var(--font-bold);
- color:var(--color-text-primary);
-
- background:transparent;
-
- transition:.25s;
-}
-
-.footerButton:hover{
- background:var(--color-surface-soft);
-}
-
-.arrowFooter{
- color:var(--color-primary);
 }
 
 .listContainer::-webkit-scrollbar{
@@ -166,10 +125,6 @@ font-weight:var(--font-bold);
 .listContainer::-webkit-scrollbar-thumb{
  background:var(--color-border);
  border-radius:999px;
-}
-
-:global([data-theme="dark"]) .forecastCard{
- box-shadow:0 24px 60px rgba(0,0,0,.35);
 }
 
 @media(max-width:768px){
@@ -235,7 +190,4 @@ font-size:.85rem;
     font-size: .72rem;
   }
 
-  .footerButton {
-    padding: var(--spacing-sm);
-  }
 }

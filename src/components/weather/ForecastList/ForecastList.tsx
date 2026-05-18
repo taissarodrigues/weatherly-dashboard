@@ -1,13 +1,37 @@
 import React, { useMemo } from "react";
-import { ArrowRight } from "lucide-react";
 import { useWeather } from "../../../context/weather/useWeather";
 import { Card } from "../../ui/Card/Card";
 import { defaultWeatherImage, weatherCodeMap } from "../../../utils/weatherCode";
 import { ForecastDayItem } from "./ForecastDayItem";
 import styles from "./ForecastList.module.css";
 
+const capitalize = (value: string) =>
+  value.charAt(0).toUpperCase() + value.slice(1);
+
+const formatForecastDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  const weekday = date
+    .toLocaleDateString("pt-BR", {
+      weekday: "long",
+      timeZone: "UTC",
+    })
+    .split("-")[0];
+  const day = date.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    timeZone: "UTC",
+  });
+  const month = date
+    .toLocaleDateString("pt-BR", {
+      month: "short",
+      timeZone: "UTC",
+    })
+    .replace(".", "");
+
+  return `${capitalize(weekday)}, ${day} de ${month}`;
+};
+
 export const ForecastList: React.FC = () => {
-  const { dailyForecast, loading, city } = useWeather();
+  const { dailyForecast, city } = useWeather();
 
   const daysList = useMemo(() => {
     if (!dailyForecast?.time) return [];
@@ -18,7 +42,7 @@ export const ForecastList: React.FC = () => {
 
       return {
         id: dateStr,
-        date: dateStr,
+        date: formatForecastDate(dateStr),
         max: Math.round(dailyForecast.temperature_2m_max?.[index] ?? 0),
         min: Math.round(dailyForecast.temperature_2m_min?.[index] ?? 0),
         image: weatherInfo?.image || defaultWeatherImage,
@@ -27,15 +51,12 @@ export const ForecastList: React.FC = () => {
     });
   }, [dailyForecast]);
 
-  if (!city || loading) return null;
+  if (!city || !dailyForecast) return null;
 
   return (
     <Card className={styles.forecastCard}>
       <div className={styles.cardHeader}>
         <h3 className={styles.cardTitle}>Previsão 7 dias</h3>
-        <button type="button" className={styles.headerLink}>
-          Ver detalhes
-        </button>
       </div>
 
       <ul className={styles.listContainer}>
@@ -51,11 +72,6 @@ export const ForecastList: React.FC = () => {
           />
         ))}
       </ul>
-
-      <button type="button" className={styles.footerButton}>
-        Ver previsão completa
-        <ArrowRight size={16} className={styles.arrowFooter} />
-      </button>
     </Card>
   );
 };

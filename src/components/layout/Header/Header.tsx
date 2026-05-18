@@ -151,40 +151,21 @@ export const Header: React.FC = () => {
         {searchError && <span className={styles.searchError}>{searchError}</span>}
       </div>
 
-      { /* icons de ação e perfil do user */ }
       <div className={styles.actionsSection}>
-        
-        {/* botao para atualizar localizacao */}
         <Button
           variant="icon"
           title="Minha Localização"
           onClick={handleUseCurrentLocation}
           disabled={locationLoading}
         >
-          <Navigation size={20}  />
+          <Navigation size={20} />
         </Button>
 
-        {/* botao p alterar tema*/}
         <Button variant="icon" onClick={toggleTheme} title="Alternar Tema">
           {isDark ? <Sun size={20} /> : <Moon size={20} />}
         </Button>
 
         <div className={styles.divider} />
-
-        {/* bloco de perfil do user
-        <div className={styles.profileBlock}>
-          <img 
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80" 
-            alt="Foto de Perfil do user" 
-            className={styles.avatar} 
-          />
-          <div className={styles.profileInfo}>
-            <span className={styles.profileName}>Taissa</span>
-            <span className={styles.profileRole}>Premium</span>
-          </div>
-          <ChevronDown size={16} className={styles.arrowIcon} />
-        </div> */}
-
       </div>
     </header>
   );

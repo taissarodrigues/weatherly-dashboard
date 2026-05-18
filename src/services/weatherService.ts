@@ -1,4 +1,4 @@
-import { API_LINKS } from "../components/api_links";
+import { API_LINKS } from "../config/apiLinks";
 import type { DailyForecastData, HourlyForecastData } from "../context/weather/WeatherContextValue";
 
 export interface WeatherForecast {

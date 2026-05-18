@@ -4,7 +4,6 @@ import App from "./App";
 import { ThemeProvider } from "./context/theme/ThemeContext";
 import { WeatherProvider } from "./context/weather/WeatherContext";
 import { preloadWeatherBackgrounds } from "./utils/weatherCode";
-import "./App.module.css";
 import "./styles/globals.css";
 
 preloadWeatherBackgrounds();

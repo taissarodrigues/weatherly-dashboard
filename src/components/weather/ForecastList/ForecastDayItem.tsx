@@ -10,19 +10,6 @@ interface ForecastDayItemProps {
   featured?: boolean;
 }
 
-const formatForecastDate = (date: string) => {
-  const formatted = new Date(date).toLocaleDateString("pt-BR", {
-    weekday: "long",
-    day: "numeric",
-    month: "short",
-    timeZone: "UTC",
-  });
-
-  return formatted
-    .replace(".", "")
-    .replace(/^\w/, (letter) => letter.toUpperCase());
-};
-
 export const ForecastDayItem: React.FC<ForecastDayItemProps> = ({
   date,
   description,
@@ -38,7 +25,7 @@ export const ForecastDayItem: React.FC<ForecastDayItemProps> = ({
       </div>
 
       <div className={styles.infoBlock}>
-        <span className={styles.dayName}>{formatForecastDate(date)}</span>
+        <span className={styles.dayName}>{date}</span>
         <span className={styles.weatherDescription}>{description}</span>
       </div>
 
