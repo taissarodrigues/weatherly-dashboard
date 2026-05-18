@@ -1,4 +1,4 @@
-#  Weather 
+#  Weatherly
 
 Aplicacao frontend em React + TypeScript para consulta de clima atual e previsao dos proximos dias. O projeto consome APIs publicas para buscar cidades, detectar a localizacao aproximada do usuario por IP e exibir dados meteorologicos em cards e graficos.
 
