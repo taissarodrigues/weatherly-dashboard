@@ -1,5 +1,6 @@
 .layoutContainer {
   min-height: 100vh;
+  width: 100%;
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: var(--font-family);
@@ -12,28 +13,32 @@
 
 .headerArea {
   width: 100%;
+  min-width: 0;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
   gap: 24px;
   align-items: start;
+  min-width: 0;
 }
 
 .mainArea {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
 .sidebarArea {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .gridContainer {
     grid-template-columns: 1fr;
   }

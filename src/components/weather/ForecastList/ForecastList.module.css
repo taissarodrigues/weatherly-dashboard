@@ -4,6 +4,7 @@
   gap: var(--spacing-xl);
 
   width: 100%;
+  min-width: 0;
   padding: 32px;
 
   max-height: calc(100vh - 140px);
