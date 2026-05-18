@@ -21,11 +21,13 @@ export interface WeatherContextType {
   error: string | null;
   latitude: number | null;
   longitude: number | null;
-  temperature: number | null;
-  currentWeatherCode: number | null;
-  humidity: number | null;
-  windSpeed: number | null;
-  uvIndex: number | null;
+  currentWeather: {
+    temperature: number | null;
+    humidity: number | null;
+    windSpeed: number | null;
+    uvIndex: number | null;
+    weatherCode: number | null;
+  } | null;
   dailyForecast: DailyForecastData | null;
   hourlyForecast: HourlyForecastData | null;
   loading: boolean;

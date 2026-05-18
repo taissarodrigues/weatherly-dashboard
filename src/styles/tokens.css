@@ -6,7 +6,8 @@
 
   --font-family:
     Inter,
-    SF Pro Display,
+    -apple-system,
+    BlinkMacSystemFont,
     system-ui,
     sans-serif;
 
@@ -159,8 +160,8 @@
       CORES PRINCIPAIS
   ============================== */
 
-  --color-primary: #3b82f6;
-  --color-primary-light: #60a5fa;
+  --color-primary: #0748b1;
+  --color-primary-light: #074a9d;
   --color-primary-dark: #2563eb;
   --color-primary-soft: rgba(59,130,246,.18);
   --color-primary-tint: rgba(96,165,250,.10);

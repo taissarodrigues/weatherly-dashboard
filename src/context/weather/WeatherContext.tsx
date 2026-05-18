@@ -18,22 +18,20 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
   const [latitude, setLatitude] = useState<number | null>(null);
   const [longitude, setLongitude] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
-  const [temperature, setTemperature] = useState<number | null>(null);
-  const [currentWeatherCode, setCurrentWeatherCode] = useState<number | null>(null);
-  const [humidity, setHumidity] = useState<number | null>(null);
-  const [windSpeed, setWindSpeed] = useState<number | null>(null);
-  const [uvIndex, setUvIndex] = useState<number | null>(null);
+  const [currentWeather, setCurrentWeather] = useState<{
+    temperature: number | null;
+    humidity: number | null;
+    windSpeed: number | null;
+    uvIndex: number | null;
+    weatherCode: number | null;
+  } | null>(null);
   const [dailyForecast, setDailyForecast] = useState<DailyForecastData | null>(null);
   const [hourlyForecast, setHourlyForecast] = useState<HourlyForecastData | null>(null);
   const [retryKey, setRetryKey] = useState(0);
   const [locationRetryKey, setLocationRetryKey] = useState(0);
 
   const clearWeatherData = useCallback(() => {
-    setTemperature(null);
-    setCurrentWeatherCode(null);
-    setHumidity(null);
-    setWindSpeed(null);
-    setUvIndex(null);
+    setCurrentWeather(null);
     setDailyForecast(null);
     setHourlyForecast(null);
   }, []);
@@ -80,11 +78,13 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
         const data = await getWeatherForecast(latitude, longitude);
 
         if (isMounted) {
-          setTemperature(data.current?.temperature_2m ?? null);
-          setCurrentWeatherCode(data.current?.weather_code ?? null);
-          setHumidity(data.current?.relative_humidity_2m ?? null);
-          setWindSpeed(data.current?.wind_speed_10m ?? null);
-          setUvIndex(data.current?.uv_index ?? null);
+          setCurrentWeather({
+            temperature: data.current?.temperature_2m ?? null,
+            humidity: data.current?.relative_humidity_2m ?? null,
+            windSpeed: data.current?.wind_speed_10m ?? null,
+            uvIndex: data.current?.uv_index ?? null,
+            weatherCode: data.current?.weather_code ?? null,
+          });
           setDailyForecast(data.daily ?? null);
           setHourlyForecast(data.hourly ?? null);
         }
@@ -105,13 +105,13 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
   const value = useMemo(
     () => ({
       city, country, error, latitude, longitude, loading,
-      temperature, currentWeatherCode, humidity, windSpeed, uvIndex,
+      currentWeather,
       dailyForecast, hourlyForecast,
       retryWeather, setCity, setCountry, setLatitude, setLongitude,
     }),
     [
       city, country, error, latitude, longitude, loading,
-      temperature, currentWeatherCode, humidity, windSpeed, uvIndex,
+      currentWeather,
       dailyForecast, hourlyForecast,
       retryWeather,
     ]

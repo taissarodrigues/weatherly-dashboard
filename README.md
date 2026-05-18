@@ -14,6 +14,18 @@ Aplicacao frontend em React + TypeScript para consulta de clima atual e previsao
 - Estados de carregamento, erro e tela vazia com mensagens amigaveis.
 - Layout responsivo para desktop, tablet e mobile.
 
+## Preview
+
+Adicione as imagens da aplicacao na pasta `docs/screenshots` usando os nomes abaixo:
+
+| Modo claro | Modo escuro |
+| --- | --- |
+| ![Tela inicial em modo claro](docs/screenshots/light-mode.png) | ![Tela inicial em modo escuro](docs/screenshots/dark-mode.png) |
+
+| Tablet | Mobile |
+| --- | --- |
+| ![Layout responsivo em tablet](docs/screenshots/tablet.png) | ![Layout responsivo em mobile](docs/screenshots/mobile.png) |
+
 ## Tecnologias
 
 - React

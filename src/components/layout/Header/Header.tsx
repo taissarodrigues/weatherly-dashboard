@@ -5,7 +5,7 @@ import { Input } from "../../ui/Input/Input";
 import { Button } from "../../ui/Button/Button";
 import { getIpLocation, searchCities } from "../../../services/locationService";
 import type { CitySearchResult } from "../../../services/locationService";
-import { Search, Navigation, Sun, Moon,  } from "lucide-react";
+import { Search, Navigation, Sun, Moon } from "lucide-react";
 import styles from "./Header.module.css";
 
 export const Header: React.FC = () => {
@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
   const [cityOptions, setCityOptions] = useState<CitySearchResult[]>([]);
   const [searchError, setSearchError] = useState<string | null>(null);
   const [locationLoading, setLocationLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     const cityName = search.trim();
@@ -89,14 +90,15 @@ export const Header: React.FC = () => {
   const handleSearch = async () => {
     const cityName = search.trim();
 
-    if (!cityName) return;
+    if (!cityName || isSearching) return;
 
-    if (cityOptions.length > 0) {
-      selectCity(cityOptions[0]);
-      return;
-    }
-
+    setIsSearching(true);
     try {
+      if (cityOptions.length > 0) {
+        selectCity(cityOptions[0]);
+        return;
+      }
+
       const result = (await searchCities(cityName, 1))[0];
 
       if (!result) {
@@ -107,6 +109,8 @@ export const Header: React.FC = () => {
       selectCity(result);
     } catch {
       setSearchError("Erro ao buscar cidade.");
+    } finally {
+      setIsSearching(false);
     }
   };
 
@@ -123,7 +127,7 @@ export const Header: React.FC = () => {
               placeholder="Buscar cidade..."
               value={search}
               onChange={handleSearchChange}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+              onKeyDown={(e) => e.key === "Enter" && !isSearching && handleSearch()}
               autoComplete="off"
               icon={<Search size={20} />}
             />
@@ -136,6 +140,7 @@ export const Header: React.FC = () => {
                       type="button"
                       className={styles.optionButton}
                       onClick={() => selectCity(cityOption)}
+                      disabled={isSearching}
                     >
                       <span className={styles.optionName}>{cityOption.name}</span>
                       <span className={styles.optionMeta}>

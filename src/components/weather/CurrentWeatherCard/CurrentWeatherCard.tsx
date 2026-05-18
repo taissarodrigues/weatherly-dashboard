@@ -13,16 +13,17 @@ export const CurrentWeatherCard: React.FC = () => {
   const {
     city,
     country,
-    temperature,
-    currentWeatherCode,
-    humidity,
-    windSpeed,
-    uvIndex,
+    currentWeather,
     dailyForecast,
     loading,
     error,
     retryWeather,
   } = useWeather();
+  const temperature = currentWeather?.temperature ?? null;
+  const humidity = currentWeather?.humidity ?? null;
+  const windSpeed = currentWeather?.windSpeed ?? null;
+  const uvIndex = currentWeather?.uvIndex ?? null;
+  const currentWeatherCode = currentWeather?.weatherCode ?? null;
 
   const weatherCode = currentWeatherCode ?? dailyForecast?.weathercode?.[0];
   const weather = weatherCodeMap[weatherCode as keyof typeof weatherCodeMap];
@@ -97,8 +98,6 @@ export const CurrentWeatherCard: React.FC = () => {
             </div>
           </div>
 
-          <span className={styles.separator}>•</span>
-
           <div className={styles.metricItem}>
             <Droplets className={styles.metricIcon} size={18} aria-hidden="true" />
             <div className={styles.metricCopy}>
@@ -106,8 +105,6 @@ export const CurrentWeatherCard: React.FC = () => {
               <span className={styles.metricValue}>{formatMetric(humidity, "%")}</span>
             </div>
           </div>
-
-          <span className={styles.separator}>•</span>
 
           <div className={styles.metricItem}>
             <Sun className={styles.metricIcon} size={18} aria-hidden="true" />

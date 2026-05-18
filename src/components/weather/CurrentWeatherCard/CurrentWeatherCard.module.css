@@ -143,10 +143,6 @@
   color: var(--card-text-primary);
 }
 
-.separator {
-  display: none;
-}
-
 .visualSection {
   position: absolute;
   right: 56px;

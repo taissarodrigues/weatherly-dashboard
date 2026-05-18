@@ -1,24 +1,20 @@
-<svg width="314" height="288" viewBox="0 0 314 288" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M85.5 215C73.0487 231.333 55.6169 264 85.5 264C115.383 264 97.9513 231.333 85.5 215Z" fill="#00BCFF"/>
-<path d="M155.5 239C143.049 255.333 125.617 288 155.5 288C185.383 288 167.951 255.333 155.5 239Z" fill="#00BCFF"/>
-<path d="M220.5 215C208.049 231.333 190.617 264 220.5 264C250.383 264 232.951 231.333 220.5 215Z" fill="#00BCFF"/>
-<g filter="url(#filter1_i_1_57)">
-<path d="M277.747 95.0084C278.549 90.4546 278.967 85.7701 278.967 80.9888C278.967 36.2599 242.369 0 197.223 0C163.661 0 134.823 20.0397 122.234 48.7007C112.035 39.9768 98.801 34.7095 84.3389 34.7095C52.0918 34.7095 25.9504 60.8972 25.9504 93.2014C25.9504 95.0003 26.0315 96.7801 26.1902 98.5376C10.6799 106.065 3.05176e-05 121.858 3.05176e-05 140.124C3.05176e-05 165.683 20.9131 186.403 46.7108 186.403H267.289C293.087 186.403 314 165.683 314 140.124C314 118.126 298.51 99.7132 277.747 95.0084Z" fill="url(#paint0_linear_1_57)"/>
-</g>
-<defs>
-<filter id="filter1_i_1_57" x="0" y="0" width="314" height="196.403" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="11"/>
-<feGaussianBlur stdDeviation="5"/>
-<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
-<feBlend mode="normal" in2="shape" result="effect1_innerShadow_1_57"/>
-</filter>
-<linearGradient id="paint0_linear_1_57" x1="19.9717" y1="169.76" x2="336.746" y2="-67.1272" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0.58"/>
-</linearGradient>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <linearGradient id="rain-cloud" x1="22" x2="76" y1="16" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset=".58" stop-color="#CBD5E1"/>
+      <stop offset="1" stop-color="#94A3B8"/>
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#rain-cloud)"
+    stroke="#94A3B8"
+    stroke-width="2"
+    d="M24 56h45a15 15 0 0 0 1.4-29.9A25 25 0 0 0 23.2 34 11 11 0 0 0 24 56Z"
+  />
+  <g fill="#38BDF8">
+    <path d="M30 66c-4 5.2-9.6 15.8 0 15.8S34 71.2 30 66Z"/>
+    <path d="M48 70c-4 5.2-9.6 15.8 0 15.8S52 75.2 48 70Z"/>
+    <path d="M66 66c-4 5.2-9.6 15.8 0 15.8S70 71.2 66 66Z"/>
+  </g>
 </svg>

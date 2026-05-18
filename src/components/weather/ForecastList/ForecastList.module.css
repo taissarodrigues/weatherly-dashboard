@@ -118,6 +118,11 @@ font-weight:var(--font-bold);
   color: var(--color-text-secondary);
 }
 
+.tempDivider {
+  color: var(--color-text-muted);
+  font-weight: var(--font-regular);
+}
+
 .listContainer::-webkit-scrollbar{
  width:6px;
 }
