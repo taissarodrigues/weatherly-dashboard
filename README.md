@@ -51,7 +51,7 @@ As URLs estao configuradas em `src/config/apiLinks.ts`. Nenhuma chave de API ou 
 1. Clone o repositorio:
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/taissarodrigues/weatherly-dashboard.git
 cd lapisco-weather
 ```
 
